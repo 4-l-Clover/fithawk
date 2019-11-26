@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>DISCOVER</ion-title>
+    <button class="add-btn edit-btn" (click)="goToCreatePage()"><ion-icon name="add"></ion-icon></button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="no-scroll">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 *ngFor="let category of categories">
+        <div class="background" [ngStyle]="{'background-image': 'url(' + category.data.avatar + ')'}" (click)="goToGroupList(category.id, category.data.name)">
+          <div class="background-filter rlt">
+            <div class="group-title" padding-left padding-right>
+              <h3 class="text-white" ion-text>{{category.data.name}}</h3>
+            </div>
+          </div>
+        </div>
+        <div class="category-title">
+          ({{category.data.groups.length}})
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

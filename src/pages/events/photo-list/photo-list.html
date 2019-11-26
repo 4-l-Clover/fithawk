@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>PHOTOS</ion-title>
+    <button class="add-btn edit-btn" (click)="goToUploadPage()"><ion-icon name="add"></ion-icon></button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4 *ngFor="let photo of photoList">
+        <p ion-text color="primary" class="title">{{photo.title.toUpperCase()}}</p>
+        <img class="category-image" [src]="photo.src" (click)="detailView(photo)" >
+        <p ion-text color="grey" class="description">{{photo.description}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

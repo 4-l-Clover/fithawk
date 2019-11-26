@@ -1,0 +1,54 @@
+page-upload-media {
+    ion-header {
+        ion-toolbar {
+            text-align: center;
+            font-size: 11px;
+            min-height: 0 !important;
+            padding: 6px 40px 4px 40px !important;
+
+            .toolbar-background {
+                background: black;
+            }
+        }
+    }
+
+    ion-content{
+        .scroll-content {
+            padding: 0px !important;
+
+            form {
+                .user-avatar {
+                    text-align: center;
+                }
+
+                ion-input {
+                    font-size: 14px !important;
+                }
+
+                .input-wrapper {
+                    border: 0.55px solid #c8c7cc;
+                }
+
+                ion-item {
+                    .item-inner {
+                        padding-right: 0 !important;
+                    }
+
+                    ion-input,ion-textarea {
+                        padding-left: 15px;
+                        color: #666666 !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.action-sheet-ios {
+    .action-sheet-button {
+        color: #999999 !important;
+        font-size: 15px;
+        padding: 14px;
+        min-height: 5rem;
+    }
+}

@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>NOTIFICATIONS</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-list">
+    <div class="ion-item" *ngFor="let activity of activityList" (click)="goToDetailPage(activity)">
+      <div class="item-avatar group">
+        <img [src]="activity.group_avatar">
+      </div>
+      <div class="description">
+        <p class="title text-grey">{{activity.meta.name}}</p>
+        <p class="comment text-grey">{{activity.meta.description}}</p>
+        <p class="time">{{activity.created_at | relativeTime}}</p>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,61 @@
+<ion-list class="no-margin" *ngIf="pageKind=='group'">
+  <button ion-item class="text-1x" tappable (click)="goToEditGroup()">
+    <ion-icon name="cog" color="grey"></ion-icon>
+    <span ion-text color="grey">EDIT GROUP</span>
+  </button>
+  <button ion-item class="text-1x" tappable (click)="close()">
+    <ion-icon name="trash" color="grey"></ion-icon>
+    <span ion-text color="grey">DELETE GROUP</span>
+  </button>
+</ion-list>
+
+<ion-list class="no-margin" *ngIf="pageKind=='event_mine'">
+  <button ion-item class="text-1x" tappable (click)="goToEditEvent()">
+    <ion-icon name="cog" color="grey"></ion-icon>
+    <span ion-text color="grey">EDIT EVENT</span>
+  </button>
+  <button ion-item class="text-1x" tappable (click)="close()">
+    <ion-icon name="trash" color="grey"></ion-icon>
+    <span ion-text color="grey">DELETE EVENT</span>
+  </button>
+</ion-list>
+
+<ion-list class="no-margin" *ngIf="pageKind=='photoDetail'">
+  <button ion-item class="text-1x" tappable (click)="goToEditPhoto()">
+    <ion-icon name="cog" color="grey"></ion-icon>
+    <span ion-text color="grey">EDIT PHOTO</span>
+  </button>
+  <button ion-item class="text-1x" tappable (click)="close()">
+    <ion-icon name="trash" color="grey"></ion-icon>
+    <span ion-text color="grey">DELETE PHOTO</span>
+  </button>
+</ion-list>
+
+<ion-list class="no-margin" *ngIf="pageKind=='mediaDetail'">
+  <button ion-item class="text-1x" tappable (click)="goToEditMedia()">
+    <ion-icon name="cog" color="grey"></ion-icon>
+    <span ion-text color="grey">EDIT MEDIA</span>
+  </button>
+  <button ion-item class="text-1x" tappable (click)="close()">
+    <ion-icon name="trash" color="grey"></ion-icon>
+    <span ion-text color="grey">DELETE MEDIA</span>
+  </button>
+</ion-list>
+
+<ion-list class="no-margin" *ngIf="pageKind=='event_member'">
+  <button ion-item class="text-1x" tappable (click)="close()">
+    <ion-icon name="cog" color="grey"></ion-icon>
+    <span ion-text color="grey">SPAM</span>
+  </button>
+  <button ion-item class="text-1x" tappable (click)="close()">
+    <ion-icon name="trash" color="grey"></ion-icon>
+    <span ion-text color="grey">ABUSE</span>
+  </button>
+</ion-list>
+
+<!-- <ion-list class="no-margin" *ngIf="pageKind=='logout'">
+  <button ion-item class="text-1x" tappable (click)="logout()">
+    <ion-icon name="cog" color="grey"></ion-icon>
+    <span ion-text color="grey">LOGOUT</span>
+  </button>
+</ion-list> -->

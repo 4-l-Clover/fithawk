@@ -1,0 +1,94 @@
+<ion-header *ngIf="pageKind == 'create'">
+  <ion-navbar>
+    <ion-title>EVENT CREATE</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <p ion-text no-margin class="text-white">
+      PLEASE ENTER YOUR INFO BELOW TO CREATE YOUR OWN FITHAWK EVENT
+    </p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header *ngIf="pageKind == 'edit'">
+  <ion-navbar>
+    <ion-title>EDIT EVENT</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <p ion-text no-margin class="text-white">
+      PLEASE ENTER YOUR INFO BELOW
+    </p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="no-scroll">
+  <form #formCtrl="ngForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <ion-item class="no-pl marginB-16px">
+            <ion-input type="text" [(ngModel)]="event.name" name="name" required placeholder="EVENT NAME"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-2>
+          <div class="user-zip">
+            <img class="calendar-image" src="assets/imgs/calendar.png">
+          </div>
+        </ion-col>
+        <ion-col col-5>
+          <ion-item class="no-pl">
+            <ion-datetime required name="start_date" displayFormat="DD MMM YYYY" placeholder="EVENT DATE" pickerFormat="DD MMM YYYY" [(ngModel)]="event.start_date" [ngModelOptions]="{standalone:true}"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-5>
+          <ion-item class="no-pl">
+            <ion-datetime required name="start_time" displayFormat="h mm A" placeholder="EVENT TIME" minuteValues="0,15,30,45" pickerFormat="hh mm A" [(ngModel)]="event.start_time" [ngModelOptions]="{standalone:true}"></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-2>
+          <div class="user-zip">
+            <img class="location-image" src="assets/imgs/location.png">
+          </div>
+        </ion-col>
+        <ion-col col-10>
+          <ion-item class="no-pl">
+            <ion-input type="text" required [(ngModel)]="event.zip" name="zip" required placeholder="SPARKS GYM"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-12>
+          <ion-item class="no-pl">
+            <ion-input type="text" [(ngModel)]="event.tag_line" name="tag_line" required placeholder="TAGLINE/SMALL DESCRIPTION"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-12>
+          <ion-item class="no-pl">
+            <ion-textarea placeholder="DETAILED DESCRIPTION" class="event-desc" [(ngModel)]="event.description" name="description" rows="7"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </form>
+</ion-content>
+  
+<ion-footer>
+  <button ion-button icon-start block [disabled]="!formCtrl.form.valid" color="secondary" tappable (click)="createEvent()"  *ngIf="pageKind == 'create'">
+    CREATE EVENT
+  </button>
+  <button ion-button icon-start block [disabled]="!formCtrl.form.valid" color="secondary" tappable (click)="editEvent()"  *ngIf="pageKind == 'edit'">
+    SAVE EVENT
+  </button>
+</ion-footer>

@@ -1,0 +1,58 @@
+<!-- -->
+<ion-content padding class="animated fadeIn login auth-page no-scroll">
+  <video #player playsinline autoplay muted loop>
+    <source src="assets/imgs/background-video.mp4" type="video/mp4">
+  </video>
+  <div class="login-content">
+
+    <!-- Logo -->
+    <div padding-horizontal text-center class="animated fadeInDown logo-wrapper">
+      <img src="assets/imgs/logo.png">
+    </div>
+
+    <!-- Login form -->
+    <form class="list-form" [formGroup]="loginForm">
+      <ion-item [class.invalid]="!loginForm.controls.email.valid && (loginForm.controls.email.dirty || submitAttempt)">
+        <ion-icon name="mail" class="text-grey" item-left></ion-icon>
+        <ion-input type="email" placeholder="EMAIL" formControlName="email"></ion-input>
+      </ion-item>
+
+      <div class="invalid-msg" *ngIf="!loginForm.controls.email.valid  && (loginForm.controls.email.dirty || submitAttempt)">
+        <p>Please enter a valid email.</p>
+      </div>
+
+      <ion-item [class.invalid]="!loginForm.controls.password.valid && (loginForm.controls.password.dirty || submitAttempt)">
+        <ion-icon name="lock" class="text-grey" item-left></ion-icon>
+        <ion-input type="password" placeholder="PASSWORD" formControlName="password"></ion-input>
+      </ion-item>
+
+      <div class="invalid-msg" *ngIf="!loginForm.controls.password.valid  && (loginForm.controls.password.dirty || submitAttempt)">
+        <p>Please enter a password.</p>
+      </div>
+    </form>
+
+    <div>
+      <div class="main-login">
+        <button ion-button icon-start block color="primary" type="submit" tappable (click)="login()">
+          LOGIN
+        </button>
+      </div>
+      <div class="third-party-login">
+        <button ion-button icon-start block color="dark" tappable (click)="loginWithFacebook()">
+          <ion-icon name="logo-facebook"></ion-icon>
+          CONNECT WITH FACEBOOK
+        </button>
+        <button ion-button icon-start block color="google" tappable (click)="loginWithGoogle()">
+          <ion-icon name="logo-googleplus"></ion-icon>
+          CONNECT WITH GOOGLE
+        </button>
+      </div>
+    </div>
+
+    <div class="footer-link">
+      <div text-center margin-top>
+        <p class="text-light">Don't you have any account? <span ion-text color="primary" tappable (click)="goToSignUp()">Sign up</span></p>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>JOIN REQUESTS</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <accordion [title]="group.group_name" *ngFor="let group of requestList; let i = index">
+    <ion-item class="profile-avatar" *ngFor="let user of group.pendding">
+      <ion-avatar item-start>
+        <img class="avatar-pic" [src]="user.avatar">
+      </ion-avatar>
+      <div class="user-info">
+        <h6 ion-text class="text-primary bold">{{user.name.toUpperCase()}}</h6>
+        <p ion-text class="text-secondary">{{user.description}}</p>
+      </div>
+      <div class="action-bar">
+        <ion-icon name="close" (click)="declineJoinRequest(group.group_id, user.uid, i)"></ion-icon>
+        <ion-icon name="checkmark" (click)="acceptJoinRequest(group.group_id, user.uid, group.group_name, i)"></ion-icon>
+      </div>
+    </ion-item>
+  </accordion>
+</ion-content>

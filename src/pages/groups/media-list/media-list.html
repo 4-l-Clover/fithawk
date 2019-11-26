@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>MEDIA</ion-title>
+    <button class="add-btn edit-btn" (click)="goToUploadPage()" *ngIf="pageKind=='mine'"><ion-icon name="add"></ion-icon></button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4 *ngFor="let media of mediaList">
+        <p ion-text color="primary" class="title">{{media.title.toUpperCase()}}</p>
+        <img class="category-image" [src]="media.src" *ngIf="media.flag == 0" (click)="detailView(media)" >
+        <img class="category-image" src="assets/imgs/video-cover.png" *ngIf="media.flag == 1" (click)="detailView(media)" >
+        <p ion-text color="grey" class="description">{{media.description}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

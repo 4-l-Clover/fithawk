@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{pageTitle}}</ion-title>
+    <button *ngIf="pageKind == 'own'" class="add-btn edit-btn" (click)="goToCreatePage()"><ion-icon name="add"></ion-icon></button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="trips detail-bg">
+  <div class="trip card" tappable margin-bottom *ngFor="let group of myGroupList">
+    <!-- <div class="background" [ngStyle]="{'background-image': 'url(' + group.avatar + ')'}">
+      <div class="background-filter rlt">
+        <div class="group-title" padding-left padding-right (click)="goToDetail('mine')">
+          <h6 class="text-white" ion-text>RENO BATTERS</h6>
+          <p class="text-white" ion-text><ion-icon name="pin"></ion-icon>1415 N Dayton St, Chicago, IL 60642</p>
+        </div>
+      </div>
+    </div> -->
+    <div class="background" [ngStyle]="{'background-image': 'url(' + group.data.avatar + ')'}" (click)="goToDetail('mine', group.id)">
+      <div class="background-filter rlt">
+      </div>
+    </div>
+    <div>
+      <div class="padding-sm black-bg group-nav-wrapper" (click)="goToMembersList(group.data.users, group.data.name, group.data.owner)">
+        <span ion-text class="text-white">MEMBERS</span>
+          <span ion-text color="light">{{group.data.users.length}}<ion-icon name="play" class="text-white member-icon"></ion-icon></span>
+      </div>
+      <div class="padding-sm black-bg group-nav-wrapper" (click)="goToJoinRequestList(group.data.pendding, group.data.name, group.id)">
+        <span ion-text class="text-white">JOIN REQUESTS</span>
+        <span ion-text color="light">{{group.data.pendding.length}}<ion-icon name="play" class="text-white member-icon"></ion-icon></span>
+      </div>
+      <div class="padding-sm group-nav-wrapper">
+        <div>
+          <span class="text-primary">{{group.data.name.toUpperCase()}}</span>
+        </div>
+        <div>
+          <ion-icon name="people" class="member-icon text-grey"></ion-icon><span ion-text color="grey">({{group.data.users.length}})</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trip card" tappable margin-bottom *ngFor="let group of joinedGroupList">
+    <div class="background" [ngStyle]="{'background-image': 'url(' + group.data.avatar + ')'}" (click)="goToDetail('member', group.id)">
+      <div class="background-filter rlt">
+      </div>
+    </div>
+    <div>
+      <div class="padding-sm black-bg group-nav-wrapper" (click)="goToDetail('member', group.id)">
+        <span ion-text class="text-white">LEARN MORE</span>
+        <ion-icon name="play" class="text-white member-icon"></ion-icon>
+      </div>
+      <div class="padding-sm group-nav-wrapper">
+        <div>
+          <!-- <img class="group-owner-image" src="assets/imgs/background-video-image.png"> -->
+          <span class="text-primary">{{group.data.name.toUpperCase()}}</span>
+        </div>
+        <div>
+          <ion-icon name="people" class="member-icon text-grey"></ion-icon><span ion-text color="grey">({{group.data.users.length}})</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

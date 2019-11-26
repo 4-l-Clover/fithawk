@@ -1,0 +1,125 @@
+page-calendar-item {
+    ion-navbar {
+        button {
+            color: white;
+            font-weight: 600;
+            background: transparent;
+            font-size: 23px;
+            margin-top: 5px;
+
+            &.add-btn {
+                float: right;
+            }
+        }
+    }
+
+    ion-toolbar {
+        padding: 0 !important;
+    }
+
+    [col-1] {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 8.33333%;
+        -ms-flex: 0 0 8.33333%;
+        flex: 0 0 14.285714285714286%;
+        width: 14.285714285714286%;
+        max-width: 14.285714285714286%;
+    }
+    .col {
+        text-align: center;
+        padding: 5px;
+        font-size: 18px;
+    }
+    .last-month, .next-month {
+        color: #999999;
+        font-size: 90%;
+    }
+    .currentDate, .otherDate, .today {
+        padding: 5px;
+    }
+    .currentDate {
+        font-weight: bold;
+        background-color: #e55725;
+        color: white;
+        border-radius: 30px;
+    }
+    .today {
+        color: #e55725;
+    }
+    .calendar-header {
+        background-color: black;
+        color: white;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    .event-bullet {
+        margin: 2px auto;
+        height: 5px;
+        width: 5px;
+        background-color: green;
+        border-radius: 30px;
+    }
+    .selected-date {
+        width: 20px;
+        height: 2px;
+        background-color: blue;
+    }
+    .unselected-date {
+        border: none;
+    }
+    .ownNav {
+        .toolbar-background-md {
+            background: #01b3cf;
+        }
+        .toolbar-title-md {
+            color: #ffffff;
+        }
+    }
+    .calendar-month {
+        height: 30px;
+        line-height: 30px;
+    }
+    .calendar-body {
+        .grid {
+            padding: 0;
+        }
+        .col:last-child {
+            border-right: none;
+        }
+        .calendar-weekday, .calendar-date {
+            text-align: center;
+            margin: 0;
+        }
+        .calendar-weekday {
+            background-color: white;
+            z-index: 2;
+            color: #555555;
+        }
+
+        .calendar-date {
+            color: #555555;
+            font-weight: bold;
+        // border-top: solid 1px #1a732d;
+        //border-bottom: solid 1px #1a732d;
+            .not_available {
+                color: #888888;
+            }
+        }
+        #monthview {
+            margin-top:0px;
+            height: 211px;
+        }
+    }
+    ion-col {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .scroll-content {
+        padding: 0 !important;
+    }
+
+    ion-card {
+        min-width: 75% !important;
+    }
+}

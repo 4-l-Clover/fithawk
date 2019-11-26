@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>UPLOAD MEDIA</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <p ion-text no-margin class="text-white">
+      PLEASE ENTER YOUR INFO BELOW TO UPLOAD MEDIA
+    </p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form #formCtrl="ngForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <div class="user-avatar">
+            <img src={{base64Image}} (click)="confirmAction()" *ngIf="isImage==true">
+
+            <video #player preload="none" muted loop poster="assets/imgs/upload_image.png" (click)="confirmAction()" *ngIf="isImage==false" style="width: 100%;"  webkit-playsinline playsinline autoplay>
+              <!-- <source [src]="videoUri" type="video/mp4"> -->
+            </video>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <ion-item class="no-pl marginB-16px">
+            <ion-input type="text" [(ngModel)]="media.title" name="title" required placeholder="TITLE"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <ion-item class="no-pl">
+            <ion-textarea placeholder="DETAILED DESCRIPTION" [(ngModel)]="media.detail" name="detail" rows="5"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </form>
+</ion-content>
+  
+<ion-footer>
+  <button ion-button icon-start block [disabled]="!formCtrl.form.valid" color="secondary" tappable (click)="upload()">
+    UPLOAD
+  </button>
+</ion-footer>

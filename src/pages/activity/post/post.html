@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <ion-title>HOME</ion-title>
+    <button class="logo-btn" (click)="triggerModal()"><ion-icon name="cog"></ion-icon></button>
+    
+    <button id="notification-button" class="logo-btn" (click)="gotoNotifications()">
+      <ion-icon name="notifications">
+        <ion-badge id="notifications-badge" color="danger" *ngIf="notificationNum != 0">{{notificationNum}}</ion-badge>
+      </ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!-- <div class="ion-list" [ngClass]="!showModal?'modal-popup': ''" (click)="closeModal()">
+    <div class="ion-item" *ngFor="let activity of activityList">
+      <div class="item-avatar group">
+        <img [src]="activity.group_avatar">
+      </div>
+      <div class="description">
+        <p class="title text-grey">{{activity.meta.name}}</p>
+        <p class="comment text-grey">{{activity.meta.description}}</p>
+        <p class="time">{{activity.created_at | relativeTime}}</p>
+      </div>
+    </div>
+  </div> -->
+  <div class="ion-list" [ngClass]="!showModal?'modal-popup': ''" (click)="closeModal()">
+    <ion-card *ngFor="let activity of activityList">
+      <ion-item>
+        <ion-avatar item-start>
+          <img [src]="activity.user_avatar">
+        </ion-avatar>
+        <h2>{{activity.user_name}}</h2>
+        <p>{{activity.created_at}}</p>
+      </ion-item>
+      <ion-card-content>
+        <p>{{activity.post}}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  
+</ion-content>
+
+<button class="button button-float" (click)="goToDiscoverPage()">
+  <ion-icon name="search"></ion-icon>
+</button>

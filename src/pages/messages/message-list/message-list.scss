@@ -1,0 +1,88 @@
+page-message-list {
+    ion-header {
+        ion-navbar {
+            button {
+                color: white;
+                font-weight: 600;
+                background: transparent;
+                font-size: 23px;
+                margin-top: 5px;
+
+                &.logo-btn {
+                    float: left;
+                }
+
+                &.add-btn {
+                    float: right;
+                }
+            }
+        }
+    }
+    
+    ion-content {
+        .profile-avatar {
+            border-bottom: none !important;
+            .message-content {
+                p {
+                    font-size: 11px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    width: 85%;
+                    letter-spacing: 0.5px;
+
+                    &.unread-text {
+                        font-weight: bold;
+                        color: black;
+                    }
+                }
+            }
+
+            .user-info {
+                display: flex;
+                justify-content: space-between;
+
+                .unread-icon {
+                    width: 8px;
+                    height: 8px;
+                    background: #1b75bb;
+                    border-radius: 50%;
+                    float: right;
+                    margin-left: 7px;
+                    margin-top: 2px;
+                }
+            }
+
+            h6 {
+                font-size: 12px;
+                margin-bottom: 7px;
+                letter-spacing: 0.5px;
+            }
+
+            ion-label {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+
+                .start-chat {
+                    font-size: 9px;
+                }
+            }
+
+            p,.location {
+                font-size: 10px;
+
+                ion-icon {
+                    margin-right: 5px;
+                }
+            }
+
+            ion-avatar {
+                .avatar-pic {
+                    width: 55px;
+                    height: 55px;
+                }
+            }
+        }
+    }
+}

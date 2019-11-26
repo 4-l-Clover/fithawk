@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>PHOTOS</ion-title>
+    <!-- <button class="skip-btn edit-btn" tappable (click)="more($event)"><ion-icon name="more"></ion-icon></button> -->
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="photo-detail">
+    <h3 ion-text color="primary">{{photo.title.toUpperCase()}}</h3>
+    <img [src]="photo.src">
+    <p ion-text color="grey">{{photo.description}}</p>
+  </div>
+</ion-content>

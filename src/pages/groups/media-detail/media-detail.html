@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>MEDIA</ion-title>
+    <!-- <button class="skip-btn edit-btn" tappable (click)="more($event)"><ion-icon name="more"></ion-icon></button> -->
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="photo-detail">
+    <h3 ion-text color="primary">{{media.title.toUpperCase()}}</h3>
+    <img [src]="media.src" *ngIf="media.flag == 0">
+    <div class="video-wrapper" *ngIf="media.flag == 1">
+      <video #player playsinline autoplay muted loop style="width: 100%;">
+        <source [src]="media.src" type="video/mp4">
+      </video>
+    </div>
+    <p ion-text color="grey">{{media.description}}</p>
+  </div>
+</ion-content>
+
+<ion-footer *ngIf="accessDeleting">
+  <div class="leave-group" (click)="deleteMedia()">
+    <p>DELETE MEDIA</p>
+  </div>
+</ion-footer>

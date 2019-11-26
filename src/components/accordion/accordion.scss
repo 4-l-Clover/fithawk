@@ -1,0 +1,32 @@
+accordion {
+
+    .card-header {
+        padding: 0 !important;
+        height: 35px;
+        border-bottom: 1px solid #666666;
+        ion-list {
+            ion-item {
+                .input-wrapper {
+                    height: 35px;
+
+                    ion-label {
+                        margin: 0;
+                        font-size: 14px !important;
+                    }
+                }
+
+                button {
+                    margin-top: 0px !important;
+
+                    ion-icon {
+                        font-size: 25px !important;
+                    }
+                }
+            }
+        }
+    }
+    .card-content {
+        padding: 0px 16px; 
+        max-height: 0px;
+    }
+}

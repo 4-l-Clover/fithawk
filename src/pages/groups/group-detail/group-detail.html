@@ -1,0 +1,126 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{groupInfo.name}}</ion-title>
+    <!-- <button class="skip-btn edit-btn" tappable (click)="more($event)" *ngIf="pageKind=='mine'"><ion-icon name="more"></ion-icon></button> -->
+  </ion-navbar>
+
+  <ion-toolbar>
+    <p ion-text no-margin class="text-white">
+      GROUP DETAIL
+    </p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <!-- <div class="slide-wrapper" *ngIf="pageKind=='mine' || pageKind=='member'">
+      <ion-slides pager="true" (ionSlideDidChange)="updateIndicatorPosition()">
+        <ion-slide *ngFor='let slide of slider'>
+          <img [src]="slide.src"/> -->
+          <!-- <video #player playsinline muted loop id="bgvid" *ngIf="slide.flag==1">
+            <source [src]="slide.src" type="video/mp4">
+          </video> -->
+          <!-- <div class="desc-wrapper text-primary">
+            <h2 [innerHTML]="slide.title"></h2>
+            <p [innerHTML]="slide.description"></p>
+          </div> -->
+        <!-- </ion-slide>
+      </ion-slides>
+    </div> -->
+
+    <div class="slide-wrapper">
+      <img class="avatar-pic" [src]="groupInfo['avatar']">
+    </div>
+
+    <ion-list no-margin>
+      <ion-item class="profile-avatar">
+        <div class="name-wrapper">
+          <h2 ion-text class="text-primary bold">{{groupInfo['name']}}</h2>
+          <div class="group-info">
+            <p ion-text class="text-secondary pull-left">SINCE:&nbsp;</p>
+            <p ion-text class="text-primary">{{groupInfo['created_at']}}</p>
+            <p ion-text class="text-secondary location"><ion-icon name="pin"></ion-icon>{{groupInfo['zip']}}</p>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <div class="description" padding>
+      <p ion-text>{{groupInfo['description']}}</p>
+    </div>
+
+    <div class="btn-wrapper">
+
+      <button tappable (click)="goToPutPost()" class="addMediaBtn" *ngIf="pageKind=='mine' || pageKind=='member'">
+        <ion-icon name="add"></ion-icon>
+        <span ion-text>POST</span>
+      </button>
+
+      <button tappable (click)="goToUploadMedia()" class="addMediaBtn" *ngIf="pageKind=='mine'">
+        <ion-icon name="add"></ion-icon>
+        <span ion-text>MEDIA</span>
+      </button>
+    </div>
+
+    <div class="border-bottom no-paddingT description no-paddingB" *ngIf="pageKind!='no_request'">
+  
+      <ul class="highlight no-marginT">
+        <li class="sub-tag" (click)="goToMemberList(groupInfo['users'], groupInfo['name'], groupInfo['owner'])">
+          <ion-icon name="people"></ion-icon>
+          <div>
+            <span ion-text color="primary">MEMBERS</span>
+            <span class="sub-info">({{groupInfo['members']}})</span>
+          </div>
+        </li>
+        <li class="sub-tag" (click)="goToRequestList(groupInfo['pendding'], groupInfo['name'])" *ngIf="pageKind=='mine'">
+          <ion-icon name="person-add"></ion-icon>
+          <div>
+            <span ion-text color="primary">JOIN REQUESTS</span>
+            <span class="sub-info">({{groupInfo['joinRequests']}})</span>
+          </div>
+        </li>
+        <li class="sub-tag" (click)="goToEventList()" *ngIf="pageKind!='pendding'">
+          <ion-icon name="list"></ion-icon>
+          <div>
+            <span ion-text color="primary">EVENTS</span>
+            <span class="sub-info">({{groupInfo['eventsLength']}})</span>
+          </div>
+        </li>
+        <li class="sub-tag" (click)="goToMediaList()" *ngIf="pageKind=='mine' || pageKind=='member'">
+          <ion-icon name="play"></ion-icon>
+          <div>
+            <span ion-text color="primary">MEDIA</span>
+            <span class="sub-info">({{groupInfo['mediaLength']}})</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="padding-sm group-nav-wrapper" *ngIf="pageKind=='no_request'">
+      <button ion-button icon-start block color="secondary" class="join-to-group" tappable (click)="requestJoin(groupInfo['name'])">
+        JOIN GROUP
+      </button>
+    </div>
+
+    <div class="padding-sm group-nav-wrapper" *ngIf="pageKind=='pendding'">
+      <button ion-button icon-start block color="grey" class="join-to-group" tappable>
+        REQUEST PENDING
+      </button>
+    </div>
+
+    
+
+    <div class="slide-wrapper rock-wrapper" *ngIf="pageKind=='no_request' || pageKind=='pendding'">
+      <div class="rock-view">
+        <ion-icon name="lock"></ion-icon>
+        <p>"JOIN TO VIEW THE GROUP UPDATES"</p>
+      </div>
+    </div>
+
+</ion-content>
+
+<ion-footer *ngIf="pageKind=='member'">
+  <div class="leave-group" (click)="leaveGroup()">
+    <p>LEAVE GROUP</p>
+  </div>
+</ion-footer>

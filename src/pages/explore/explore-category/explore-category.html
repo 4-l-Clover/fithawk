@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar>
+    <button class="skip-btn" (click)="skip()">SKIP</button>
+    <ion-title>Explore</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col  col-6>
+        <img class="category-image" src="assets/imgs/category/running.jpg" (click)="selectCategory('running')" >
+        <div class="category-check" *ngIf="categoryCheckFlag.running" (click)="selectCategory('running')">
+          <ion-icon name="checkmark"></ion-icon>
+        </div>
+        <div class="category-title">
+          RUNNING
+        </div>
+      </ion-col>
+      <ion-col  col-6>
+        <img class="category-image" src="assets/imgs/category/baseball.jpg" (click)="selectCategory('baseball')">
+        <div class="category-check" *ngIf="categoryCheckFlag.baseball" (click)="selectCategory('baseball')">
+          <ion-icon name="checkmark"></ion-icon>
+        </div>
+        <div class="category-title">
+          BASEBALL
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col  col-6>
+        <img class="category-image" src="assets/imgs/category/cross_fit.jpg" (click)="selectCategory('cross_fit')">
+        <div class="category-check" *ngIf="categoryCheckFlag.cross_fit" (click)="selectCategory('cross_fit')">
+          <ion-icon name="checkmark"></ion-icon>
+        </div>
+        <div class="category-title">
+          CROSS FIT
+        </div>
+      </ion-col>
+      <ion-col  col-6>
+        <img class="category-image" src="assets/imgs/category/yoga.jpg" (click)="selectCategory('yoga')">
+        <div class="category-check" *ngIf="categoryCheckFlag.yoga" (click)="selectCategory('yoga')">
+          <ion-icon name="checkmark"></ion-icon>
+        </div>
+        <div class="category-title">
+          YOGA
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col  col-6>
+          <img class="category-image" src="assets/imgs/category/swimming.jpg" (click)="selectCategory('swimming')">
+          <div class="category-check" *ngIf="categoryCheckFlag.swimming" (click)="selectCategory('swimming')">
+            <ion-icon name="checkmark"></ion-icon>
+          </div>
+          <div class="category-title">
+            SWIMMING
+          </div>
+        </ion-col>
+        <ion-col  col-6>
+          <img class="category-image" src="assets/imgs/category/weighting.jpg" (click)="selectCategory('weighting')">
+          <div class="category-check" *ngIf="categoryCheckFlag.weighting" (click)="selectCategory('weighting')">
+            <ion-icon name="checkmark"></ion-icon>
+          </div>
+          <div class="category-title">
+            WEIGHT TRANNING
+          </div>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <button ion-button outline color="primary" tappable (click)="gotoGroup()" class="pull-right btn-pos">
+    <ion-icon name="redo"></ion-icon>
+  </button>
+</ion-content>

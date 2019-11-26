@@ -1,0 +1,44 @@
+page-compose {
+    ion-content{
+        .scroll-content {
+            padding: 0px !important;
+
+            form {
+                .user-avatar {
+                    text-align: center;
+
+                    .upload-image {
+                        height: 350px;
+                    }
+                }
+
+                .name-wrapper {
+                    display: flex;
+
+                    p {
+                        width: 40px;
+                    }
+                }
+
+                ion-input {
+                    font-size: 14px !important;
+                }
+
+                .input-wrapper {
+                    border: 0.55px solid #c8c7cc;
+                }
+
+                ion-item {
+                    .item-inner {
+                        padding-right: 0 !important;
+                    }
+
+                    ion-input,ion-textarea {
+                        padding-left: 15px;
+                        color: #666666 !important;
+                    }
+                }
+            }
+        }
+    }
+}

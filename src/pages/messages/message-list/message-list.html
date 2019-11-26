@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <ion-title>MESSAGES</ion-title>
+    <!-- <button class="add-btn" (click)="goToComposePage()"><ion-icon name="chatboxes"></ion-icon></button> -->
+    <button class="add-btn" (click)="goToGroupChat()"><ion-icon ios="ios-people" md="md-people"></ion-icon></button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class="profile-avatar" (click)="goToChatPage(message.toUserId, message.toUserName)" *ngFor="let message of messageList">
+    <ion-avatar item-start>
+      <img class="avatar-pic" [src]="message.toUserAvatar">
+    </ion-avatar>
+    <div class="user-info">
+      <h6 ion-text class="text-primary bold">{{message.toUserName}}<div class="unread-icon" *ngIf="!message.read"></div></h6>
+      <p ion-text color="grey" class="start-chat">{{message.time | relativeTime}}</p>
+    </div>
+    <div class="message-content">
+      <p ion-text class="text-secondary" [ngClass]="{'unread-text': message.read == false}">{{message.message}}</p>
+    </div>
+  </ion-item>
+</ion-content>

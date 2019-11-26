@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>REQUESTS SENT</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <p ion-text no-margin class="text-white">
+      PENDING REQUESTS
+    </p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class="profile-avatar" *ngFor="let request of requestList">
+    <ion-avatar item-start>
+      <img class="avatar-pic" [src]="request.group_src">
+    </ion-avatar>
+    <div class="user-info">
+      <h6 ion-text class="text-primary bold">{{request.group_name}}</h6>
+      <p ion-text class="text-secondary"><ion-icon name="pin">{{request.group_zip}}</ion-icon></p>
+    </div>
+    <div class="action-bar">
+      <ion-icon name="close" (click)="declineJoinRequest(request.group_id)"></ion-icon>
+    </div>
+  </ion-item>
+</ion-content>

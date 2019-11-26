@@ -1,0 +1,101 @@
+page-create {
+    ion-content {
+        ion-card {
+            margin: 0 !important;
+            width: 100% !important;
+            border-radius: 0 !important;
+
+            ion-card-content {
+                .profile-image{
+                    width: 90px;
+                    height: 90px;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        accordion {
+            form {
+                .input-wrapper {
+                    border: 0.55px solid #c8c7cc;
+                }
+
+                .user-avatar {
+                    p {
+                        font-size: 10px;
+                        color: #999999;
+                        padding-top: 3px;
+                    }
+                }
+
+                .location-image {
+                    width: 25px;
+                    height: 40px;
+                }
+
+                .user-zip {
+                    text-align: -webkit-center;
+                }
+
+                ion-item {
+                    .item-inner {
+                        padding-right: 0 !important;
+                    }
+
+                    ion-input,ion-textarea {
+                        padding-left: 15px;
+                        color: #666666 !important;
+                    }
+
+                    ion-datetime {
+                        padding-left: 15px !important;
+
+                        .datetime-text {
+                            color: #666666;
+                        }
+                    }
+                }
+            }
+
+            .category-image {
+                width: 100%;
+                height: auto;
+            }
+
+            .category-title{
+                position: absolute;
+                z-index: 99;
+                bottom: 0px;
+                background: #0000007a;
+                color: #fff;
+                width: calc(100% - 10px);
+                margin-bottom: 5px;
+                text-align: center;
+                height: auto;
+                line-height: 25px;
+            }
+
+            .category-check{
+                position: absolute;
+                z-index: 99;
+                bottom: 0px;
+                background: #0000007a;
+                color: #fff;
+                width: calc(100% - 10px);
+                margin-bottom: 30px;
+                text-align: center;
+                font-size: 70px;
+                height: calc(100% - 35px);
+            }
+        }
+    }
+}
+
+.action-sheet-ios {
+    .action-sheet-button {
+        color: #999999 !important;
+        font-size: 15px;
+        padding: 14px;
+        min-height: 5rem;
+    }
+}

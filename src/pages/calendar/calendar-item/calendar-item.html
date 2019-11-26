@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>CALENDAR</ion-title>
+    <button class="add-btn edit-btn" (click)="goToCalendarItem()"><ion-icon name="reorder"></ion-icon></button>
+  </ion-navbar>
+
+  <ion-toolbar color="light">
+    <div class="calendar-header">
+      <ion-row class="calendar-month">
+        <ion-col col-2 (click)="goToLastMonth()"><ion-icon name="arrow-back"></ion-icon></ion-col>
+        <ion-col col-8>{{displayStr}}</ion-col>
+        <ion-col col-2 (click)="goToNextMonth()"><ion-icon name="arrow-forward"></ion-icon></ion-col>
+      </ion-row>
+    </div>
+    <div class="calendar-body">
+      <ion-grid>
+        <ion-row class="calendar-weekday">
+          <ion-col>Su</ion-col>
+          <ion-col>Mo</ion-col>
+          <ion-col>Tu</ion-col>
+          <ion-col>We</ion-col>
+          <ion-col>Th</ion-col>
+          <ion-col>Fr</ion-col>
+          <ion-col>Sa</ion-col>
+        </ion-row>
+        <ion-row id="monthview" class="calendar-date">
+          <ion-col col-12 *ngFor="let item of totalDayPerWeek"  style="height: 35px; line-height: 35px;">
+            <ion-row>
+              <ion-col col-1 *ngFor="let day of item" (click)='clickItem(day.year, day.month, day.date)' [ngStyle]="day.available">              
+                  <span class="currentDate" *ngIf="clickedDate.month === day.month && clickedDate.year === day.year && clickedDate.date === day.date ;"><span *ngIf="day.date < 10; else validDate" style="margin:5px;">{{day.date}}</span></span>
+                  <span class="currentDate" *ngIf="clickedDate.date == 'null' && currentDate === day.date;"><span *ngIf="day.date < 10; else validDate" style="margin:5px;">{{day.date}}</span></span>
+                  <span class="" *ngIf="(clickedDate.date != day.date && currentDate != day.date) || (clickedDate.date == day.date && clickedDate.month != day.month && currentDate != day.date) || (clickedDate.date == day.date && clickedDate.year != day.year && currentDate != day.date)">{{day.date}}</span>
+                  <span class="today" *ngIf="!(clickedDate.date == day.date && clickedDate.month == day.month && clickedDate.year == day.year && currentDate == day.date) && clickedDate.date != 'null' && currentDate === day.date;">{{day.date}}</span>
+                  <ng-template #validDate class="validDate">{{day.date}}</ng-template>
+                </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      
+      </ion-grid>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <timeline endIcon="call">
+    <timeline-item *ngFor="let item of items">
+      <timeline-time [time]="item.time"></timeline-time>
+      <div class="circle {{item.icon}}"></div>
+      <ion-card (click)="goToEventDetail(item.detail)">
+        <ion-card-header class="title {{item.icon}}">
+          {{item.title}}
+        </ion-card-header>
+      </ion-card>
+    </timeline-item>
+  </timeline>
+</ion-content>

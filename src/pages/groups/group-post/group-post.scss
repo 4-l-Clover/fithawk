@@ -1,0 +1,66 @@
+page-group-post {
+    ion-content {
+        .profile-avatar {
+            border-bottom: none !important;
+            p {
+                font-size: 11px;
+                white-space: pre-wrap;
+            }
+
+            h6 {
+                font-size: 12px;
+                margin-bottom: 7px;
+            }
+
+            ion-label {
+                display: flex;
+                justify-content: space-between;
+
+                .start-chat {
+                    font-size: 9px;
+                }
+            }
+
+            p,.location {
+                font-size: 10px;
+
+                ion-icon {
+                    margin-right: 5px;
+                }
+            }
+
+            ion-avatar {
+                .avatar-pic {
+                    width: 55px;
+                    height: 55px;
+                }
+            }
+        }
+    }
+
+    ion-footer {
+        background: black;
+        padding: 8px;
+
+        .post-wrapper {
+            background: white;
+            display: flex;
+
+            ion-textarea {
+                textarea {
+                    margin-top: 6px;
+                    margin-bottom: 6px;
+                    margin-left: 6px;
+                }
+            }
+
+            button {
+                margin: 0;
+                border-radius: 0;
+                height: auto;
+                width: 60px;
+                font-size: 13px;
+            }
+        }
+    }
+}

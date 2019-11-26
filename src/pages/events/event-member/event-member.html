@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>EVENT MEMBERS</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <p ion-text no-margin class="text-white">
+      {{title}}
+    </p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class="profile-avatar" *ngFor="let member of membersList">
+    <ion-avatar item-start>
+      <img class="avatar-pic" [src]="member.avatar">
+    </ion-avatar>
+    <div>
+      <h6 ion-text class="text-primary bold">{{member.name}}</h6>
+      <p ion-text class="text-secondary">Member</p>
+      <p ion-text class="text-secondary location"><ion-icon name="pin"></ion-icon>{{member.location}}</p>
+    </div>
+    <div class="start-chat text-grey" (click)="sendMsgToMember(member.name, member.uid)">
+      <ion-icon name="chatboxes"></ion-icon>
+    </div>
+  </ion-item>
+</ion-content>

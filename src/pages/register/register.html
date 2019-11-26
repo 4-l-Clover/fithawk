@@ -1,0 +1,60 @@
+<!-- -->
+<ion-content padding class="animated fadeIn login register-page no-scroll">
+  <video #player playsinline autoplay muted loop>
+    <source src="assets/imgs/background-video.mp4" type="video/mp4">
+  </video>
+  <div class="login-content">
+
+    <!-- Logo -->
+    <div padding-horizontal text-center class="animated fadeInDown logo-wrapper">
+      <div class="logo"></div>
+    </div>
+
+    <!-- Login form -->
+    <form class="list-form" [formGroup]="registerForm">
+
+      <ion-item [class.invalid]="!registerForm.controls.email.valid && (registerForm.controls.email.dirty || submitAttempt)">
+        <ion-icon name="mail" class="text-grey" item-left></ion-icon>
+        <ion-input type="email" placeholder="EMAIL ADDRESS" formControlName="email"></ion-input>
+      </ion-item>
+      <div class="invalid-msg" *ngIf="!registerForm.controls.email.valid  && (registerForm.controls.email.dirty || submitAttempt)">
+        <p>Please enter a valid email.</p>
+      </div>
+
+      <ion-item [class.invalid]="!registerForm.controls.password.valid && (registerForm.controls.password.dirty || submitAttempt)">
+        <ion-icon name="lock" class="text-grey" item-left></ion-icon>
+        <ion-input type="password" placeholder="SET PASSWORD" formControlName="password"></ion-input>
+      </ion-item>
+      <div class="invalid-msg" *ngIf="!registerForm.controls.password.valid && (registerForm.controls.password.dirty || submitAttempt)">
+        <p>Please enter a password.</p>
+      </div>
+
+      <ion-item [class.invalid]="!registerForm.controls.confirm.valid && registerForm.get('confirm').errors?.MatchPassword && (registerForm.controls.confirm.dirty || submitAttempt)">
+        <ion-icon name="unlock" class="text-grey" item-left></ion-icon>
+        <ion-input type="password" placeholder="CONFIRM PASSWORD" formControlName="confirm"></ion-input>
+      </ion-item>
+      <div class="invalid-msg" *ngIf="!registerForm.controls.confirm.valid && registerForm.get('confirm').errors?.MatchPassword && (registerForm.controls.confirm.dirty || submitAttempt)">
+        <p>Passwords do not match.</p>
+      </div>
+
+      <ion-item [class.invalid]="!registerForm.controls.termsAccepted.valid && (registerForm.controls.termsAccepted.dirty || submitAttempt)">
+        <ion-checkbox formControlName="termsAccepted"></ion-checkbox>
+        <ion-label class="text-placeholder">I agree to the <span class="text-primary" (click)="goToTerms()">Terms and Conditions</span></ion-label>
+      </ion-item>
+    </form>
+
+    <div>
+      <button ion-button icon-start block color="primary" tappable (click)="signup()">
+        SIGN UP
+      </button>
+    </div>
+
+    <div class="footer-link">
+      <div text-center margin-top>
+        <p class="text-light">Already have an account? <span ion-text color="primary" tappable (click)="login()">Sign in</span></p>
+      </div>
+    </div>
+
+  </div>
+</ion-content>
+  

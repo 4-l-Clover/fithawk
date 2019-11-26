@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>COMPOSE</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form #formCtrl="ngForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12 class="name-wrapper">
+          <p ion-text color="grey">To : </p>
+          <ion-item class="no-pl marginB-16px">
+            <ion-input type="text" [(ngModel)]="message.name" name="name" required placeholder="ENTER NAME"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <ion-item class="no-pl">
+            <ion-textarea placeholder="ENTER TITLE" [(ngModel)]="message.title" required name="title" rows="15"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </form>
+</ion-content>
+  
+<ion-footer>
+  <button ion-button icon-start block [disabled]="!formCtrl.form.valid" color="secondary" tappable (click)="compose()">
+    COMPOSE
+  </button>
+</ion-footer>

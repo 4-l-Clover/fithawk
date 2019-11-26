@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>EVENTS</ion-title>
+    <button class="add-btn edit-btn" (click)="goToCreatePage()" *ngIf="pageKind=='mine'"><ion-icon name="add"></ion-icon></button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="!no_events">
+    <accordion [title]="events.start_date"  *ngFor="let events of eventList">
+      <ion-grid *ngFor="let item of events.list">
+        <ion-row class="main-part">
+          <ion-col col-4 class="time-line">
+            <div class="time-wrapper">
+              <p>{{item.start_time}}</p>
+            </div>
+          </ion-col>
+          <ion-col  col-8>
+            <p class="event-name">{{item.tagline}}</p>
+            <h2 class="event-title" (click)="goToDetail(item)">{{item.title}}</h2>
+            <p class="event-location"><ion-icon name="pin"></ion-icon>{{item.location}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row class="info-part">
+          <ion-col  col-4>
+            <div class="photo">
+              <p>PHOTOS ({{item.photos.length}})</p>
+            </div>
+          </ion-col>
+          <ion-col  col-4>
+            <div class="comments">
+              <p>COMMENTS ({{item.comments.length}})</p>
+            </div>
+          </ion-col>
+          <ion-col  col-4>
+            <div class="status">
+              <p>GOING ({{item.going.length}})</p>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row class="border-line">
+          <ion-col col-12></ion-col>
+        </ion-row>
+      </ion-grid>
+    </accordion>
+  </div>
+
+  <div *ngIf="no_events" class="group-none">
+    No events found
+  </div>
+</ion-content>

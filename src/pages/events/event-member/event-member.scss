@@ -1,0 +1,53 @@
+page-event-member {
+    ion-header {
+
+        ion-toolbar {
+            text-align: center;
+            font-size: 19px;
+            min-height: 0 !important;
+            padding-top: 2px !important;
+            padding-bottom: 2px !important;
+
+            .toolbar-background {
+                background: black;
+            }
+        }
+    }
+
+    ion-content {
+        .profile-avatar {
+            border-bottom: none !important;
+            p {
+                font-size: 11px;
+            }
+
+            h6 {
+                font-size: 12px;
+            }
+
+            ion-label {
+                display: flex;
+                justify-content: space-between;
+
+                .start-chat {
+                    font-size: 30px;
+                }
+            }
+
+            p,.location {
+                font-size: 10px;
+
+                ion-icon {
+                    margin-right: 5px;
+                }
+            }
+
+            ion-avatar {
+                .avatar-pic {
+                    width: 55px;
+                    height: 55px;
+                }
+            }
+        }
+    }
+}

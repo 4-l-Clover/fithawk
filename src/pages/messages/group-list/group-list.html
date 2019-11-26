@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>GROUP CHAT</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <p ion-text no-margin class="text-white">
+      GROUPS
+    </p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class="profile-avatar" (click)="startChat(member)" *ngFor="let member of groupList">
+    <ion-avatar item-start>
+      <img class="avatar-pic" [src]="member.avatar">
+    </ion-avatar>
+    <div style="width: 100%;">
+      <h6 ion-text class="text-primary bold">{{member.name}}</h6>
+      <p ion-text class="text-secondary">{{member.members}} members</p>
+      <p ion-text class="text-secondary location"><ion-icon name="pin"></ion-icon>{{member.location}}</p>
+    </div>
+  </ion-item>
+</ion-content>

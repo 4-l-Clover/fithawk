@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <button class="skip-btn" (click)="goToMainPage()">SKIP</button>
+    <ion-title>GROUPS</ion-title>
+    <button class="skip-btn edit-btn" (click)="showSearchBar()"><ion-icon name="search"></ion-icon></button>
+  </ion-navbar>
+
+  <ion-toolbar *ngIf="searchShow">
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="trips detail-bg" [ngClass]="searchShow ? 'adjust-to-search' : ''">
+  <div *ngIf="!group_none">
+    <div class="trip card" tappable margin-bottom *ngFor="let group of penddingGroupList">
+      <div class="background" [ngStyle]="{'background-image': 'url(' + group.data.avatar + ')'}" (click)="goToDetail('pendding', group.id)">
+        <div class="background-filter rlt">
+        </div>
+      </div>
+      <div>
+        <div class="black-bg group-nav-wrapper-1">
+          <div class="text-white padding-sm" (click)="goToDetail('pendding', group.id)">LEARN MORE</div>
+          <div class="pendding padding-sm">PENDING</div>
+        </div>
+        <div class="padding-sm group-nav-wrapper">
+          <div>
+            <!-- <img class="group-owner-image" src="assets/imgs/background-video-image.png"> -->
+            <span class="text-primary">{{group.data.name.toUpperCase()}}</span>
+          </div>
+          <div>
+            <ion-icon name="people" class="member-icon text-grey"></ion-icon><span ion-text color="grey">({{group.data.users.length + 1}})</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trip card" tappable margin-bottom *ngFor="let group of unJoinedGroupList">
+      <div class="background" [ngStyle]="{'background-image': 'url(' + group.data.avatar + ')'}" (click)="goToDetail('no_request', group.id)">
+        <div class="background-filter rlt">
+        </div>
+      </div>
+      <div>
+        <div class="black-bg group-nav-wrapper-1">
+          <div class="text-white padding-sm" (click)="goToDetail('no_request', group.id)">LEARN MORE</div>
+          <div class="text-white padding-sm secondary-bg" (click)="requestJoin(group.data.name, group.id)" *ngIf="requestFlag[group.id]">JOIN GROUP</div>
+          <div class="text-white padding-sm grey-bg" *ngIf="!requestFlag[group.id]">PENDING</div>
+        </div>
+        <div class="padding-sm group-nav-wrapper">
+          <div>
+            <!-- <img class="group-owner-image" src="assets/imgs/background-video-image.png"> -->
+            <span class="text-primary">{{group.data.name.toUpperCase()}}</span>
+          </div>
+          <div>
+            <ion-icon name="people" class="member-icon text-grey"></ion-icon><span ion-text color="grey">({{group.data.users.length + 1}})</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="group_none" class="group-none">
+    No groups found. Please continue
+  </div>
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>EDIT PROFILE</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="no-scroll">
+  <form #formCtrl="ngForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <div class="user-avatar">
+            <img class="profile-image" src={{base64Image}} (click)="presentActionSheet()">
+            <p>UPLOAD IMAGE</p>
+          </div>
+        </ion-col>
+        <ion-col col-8>
+            <ion-item class="no-pl marginB-16px">
+              <ion-input type="text" [(ngModel)]="person.name" name="name" required placeholder="ENTER NAME"></ion-input>
+            </ion-item>
+            <ion-item class="no-pl">
+              <ion-datetime required name="dob" displayFormat="DD MMM YYYY" placeholder="ENTER DOB" pickerFormat="DD MMM YYYY" [(ngModel)]="person.dob" [ngModelOptions]="{standalone:true}"></ion-datetime>
+            </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-2>
+          <div class="user-zip">
+            <img class="location-image" src="assets/imgs/location.png">
+          </div>
+        </ion-col>
+        <ion-col col-10>
+          <ion-item class="no-pl">
+            <ion-input type="number" [(ngModel)]="person.zip" name="zip" required placeholder="ZIP CODE"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-12>
+          <ion-item class="no-pl">
+            <ion-textarea placeholder="ENTER DESCRIPTION" [(ngModel)]="person.description" name="description" rows="7"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <button ion-button icon-start block [disabled]="!formCtrl.form.valid" color="secondary" tappable (click)="saveProfile()">
+    SAVE
+  </button>
+</ion-footer>

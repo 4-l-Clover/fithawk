@@ -1,0 +1,105 @@
+page-calendar-events {
+    ion-header {
+        ion-navbar {
+            button {
+                color: white;
+                font-weight: 600;
+                background: transparent;
+                font-size: 23px;
+                margin-top: 5px;
+
+                &.logo-btn {
+                    float: left;
+                }
+
+                &.add-btn {
+                    float: right;
+                }
+            }
+        }
+    }
+
+    ion-content {
+        .scroll-content {
+            padding: 0 !important;
+
+            ion-card {
+
+                margin: 0;
+                width: 100%;
+                border-radius: 0;
+
+                ion-card-content {
+
+                    padding: 0 !important;
+                    ion-grid {
+
+                        padding: 0;
+                        .main-part {
+
+                            border-bottom: 1px solid #dddddd;
+                            .time-line {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+
+                                .time-wrapper {
+                                    text-align: center;
+                                    width: 80%;
+
+                                    p {
+                                        font-size: 14px;
+                                        letter-spacing: 0;
+                                        font-weight: bold;
+                                    }
+                                }
+                            }
+
+                            .event-name {
+                                font-size: 10px;
+                            }
+
+                            .event-title {
+                                color: #e55725;
+                                font-weight: bold;
+                            }
+
+                            .event-location {
+                                font-size: 10px;
+
+                                ion-icon {
+                                    margin-right: 10px;
+                                }
+                            }
+                        }
+
+                        .info-part {
+                            p {
+                                font-size: 10px;
+                                letter-spacing: 0;
+                            }
+
+                            .photo {
+                                text-align: center;
+                            }
+
+                            .status {
+                                text-align: center;
+                            }
+                        }
+
+                        .border-line {
+                            border-top: 1px solid #aaaaaa;
+                            border-bottom: 1px solid #aaaaaa;
+                            background: #dddddd;
+
+                            ion-col {
+                                padding: 3px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

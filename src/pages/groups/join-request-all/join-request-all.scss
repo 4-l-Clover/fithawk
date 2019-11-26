@@ -1,0 +1,64 @@
+page-join-request-all {
+    ion-card {
+        margin: 0 !important;
+        width: 100% !important;
+        border-radius: 0 !important;
+
+        ion-card-content {
+            padding: 0 !important;
+        }
+    }
+
+    .profile-avatar {
+        border-bottom: none !important;
+
+        .user-info {
+            width: 80%;
+
+            p {
+                font-size: 11px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                letter-spacing: 0.5px;
+            }
+
+            h6 {
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+
+        .action-bar {
+            font-size: 24px;
+            color: grey;
+
+            ion-icon {
+                font-weight: bold;
+                font-size: 32px;
+
+                &:first-child {
+                    margin: 0 10px;
+                }
+            }
+        }
+
+        h6 {
+            font-size: 12px;
+            margin-bottom: 7px;
+            letter-spacing: 0.5px;
+        }
+
+        ion-label {
+            display: flex;
+            flex-direction: row;
+        }
+
+        ion-avatar {
+            .avatar-pic {
+                width: 55px;
+                height: 55px;
+            }
+        }
+    }
+}

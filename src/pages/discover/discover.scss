@@ -1,0 +1,64 @@
+page-discover {
+
+    ion-header {
+
+        button {
+            color: white;
+            font-weight: 600;
+            background: transparent;
+            font-size: 23px;
+
+            &.skip-btn {
+                margin-top: 5px;
+                float: left;
+                margin-left: 0;
+            }
+    
+            &.add-btn {
+                float: right;
+            }
+        }
+    }
+
+    .category-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .category-title{
+        position: absolute;
+        bottom: 0px;
+        color: #fff;
+        width: calc(100% - 10px);
+        margin-bottom: 5px;
+        text-align: right;
+        height: 25px;
+        line-height: 25px;
+    }
+
+    .background {
+        background-size: 100% auto;
+        background-position: center;
+
+        .background-filter {
+            height: 15rem;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.65));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .group-title {
+                padding-top: 7px;
+                padding-bottom: 10px;
+                text-align: center;
+                background: #0000007a;
+                width: 100%;
+                color: white;
+
+                h3 {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

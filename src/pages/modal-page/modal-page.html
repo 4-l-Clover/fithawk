@@ -1,0 +1,24 @@
+<ion-content>
+  <ion-item class="select-all">
+    <div class="user-info">
+      <h6 ion-text class="text-primary bold">ALL GROUPS</h6>
+    </div>
+    <div class="action-bar">
+      <div class="unchecked" *ngIf="!allChecked" (click)="selectAll()"></div>
+      <ion-icon name="checkmark" *ngIf="allChecked" (click)="unSelectAll()"></ion-icon>
+    </div>
+  </ion-item>
+
+  <ion-item class="profile-avatar"  *ngFor="let member of groupList">
+    <ion-avatar item-start>
+      <img class="avatar-pic" [src]="member.data.avatar">
+    </ion-avatar>
+    <div class="user-info">
+      <h6 ion-text class="text-grey bold">{{member.data.name.toUpperCase()}}</h6>
+    </div>
+    <div class="action-bar">
+      <div class="unchecked" *ngIf="!userLogService.group_check_list[member.id]" (click)="selectOne(member.id)"></div>
+      <ion-icon name="checkmark" *ngIf="userLogService.group_check_list[member.id]" (click)="unSelectOne(member.id)"></ion-icon>
+    </div>
+  </ion-item>
+</ion-content>

@@ -1,0 +1,46 @@
+page-media-list {
+    ion-header{
+        button {
+            color: white;
+            font-weight: 600;
+            background: transparent;
+            font-size: 23px;
+
+            &.add-btn {
+                float: right;
+            }
+        }
+    }
+
+    ion-content {
+        ion-grid {
+            padding: 7px;
+
+            .category-image {
+                width: 100px;
+                height: 100px;
+            }
+
+            p {
+                font-size: 10px;
+                margin: 0;
+                overflow: hidden;
+                
+                &.description {
+                    line-height: 12PX;
+                    height: 24px;
+                }
+                
+                &.title {
+                    letter-spacing: 0;
+                    line-height: 12px;
+                    height: 12px;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    width: 100%;
+                }
+
+            }
+        }
+    }
+}

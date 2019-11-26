@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>ACTIVITY</ion-title>
+    <!-- <button class="skip-btn edit-btn" tappable (click)="more($event)"><ion-icon name="more"></ion-icon></button> -->
+  </ion-navbar>
+
+  <ion-toolbar>
+    <p ion-text no-margin class="text-white">
+      EVENT DETAILS
+    </p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="no-scroll">
+  <div class="slide-wrapper">
+    <ion-slides pager="true">
+      <ion-slide *ngFor='let slide of slider'>
+        <img [src]="slide.src"/>
+        <!-- <div class="desc-wrapper text-primary">
+          <h2 [innerHTML]="slide.title"></h2>
+          <p [innerHTML]="slide.description"></p>
+        </div> -->
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <ion-list no-margin>
+    <ion-item class="profile-avatar">
+      <div class="name-wrapper">
+        <h2 ion-text class="text-primary bold">{{event.title}}</h2>
+        <p ion-text class="text-primary">{{event.start_date}}</p>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <div class="description" padding>
+    <p ion-text>{{event.description}}</p>
+    <!-- <p ion-text [ngClass]="extendFlag?'':'unexpanded'">{{event.description}}</p> -->
+    <!-- <div class="expand" ion-text color="primary" (click)="extendDetail()">{{extendText}}</div> -->
+  </div>
+  <div class="btn-wrapper">
+    <button tappable (click)="goToUploadPhoto()" class="addMediaBtn">
+      <ion-icon name="add"></ion-icon>
+      <span ion-text>PHOTO</span>
+    </button>
+  </div>
+
+  <div class="border-bottom no-paddingT description no-paddingB">
+    <ul class="highlight no-marginT">
+      <li class="main-tag">
+        <ion-icon name="grid"></ion-icon>
+        <div>
+          <span ion-text color="primary">{{distanceTime}}</span>
+          <span class="sub-info">{{event.start_time}}</span>
+        </div>
+      </li>
+      <li class="main-tag">
+        <ion-icon name="pin"></ion-icon>
+        <div>
+          <span ion-text color="primary">LOCATION OF EVENT</span>
+          <span class="sub-info">{{event.location}}</span>
+        </div>
+      </li>
+    </ul>
+
+    <button ion-button icon-start block color="secondary" class="join-to-group" tappable (click)="setRsvp()" *ngIf="pageKind=='member'">
+      {{rsvpVal}}
+    </button>
+
+    <ul class="highlight no-marginT">
+      <li class="sub-tag" (click)="goToMembersPage(event.going)">
+        <ion-icon name="people"></ion-icon>
+        <div>
+          <span ion-text color="primary">MEMBERS ATTENDING</span>
+          <span class="sub-info">{{event.going.length}} MEMBERS</span>
+        </div>
+      </li>
+      <li class="sub-tag" (click)="goToCommentsPage(event.comments)">
+        <ion-icon name="paper"></ion-icon>
+        <div>
+          <span ion-text color="primary">COMMENTS</span>
+          <span class="sub-info">{{event.comments.length}} COMMENTS</span>
+        </div>
+      </li>
+      <li class="sub-tag" (click)="goToPhotoPage(event.photos)">
+        <ion-icon name="photos"></ion-icon>
+        <div>
+          <span ion-text color="primary">PHOTOS</span>
+          <span class="sub-info">{{event.photos.length}}</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</ion-content>

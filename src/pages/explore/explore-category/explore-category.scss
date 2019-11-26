@@ -1,0 +1,36 @@
+page-explore-category {
+    .category-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .category-title{
+        position: absolute;
+        z-index: 99;
+        bottom: 0px;
+        background: #0000007a;
+        color: #fff;
+        width: calc(100% - 10px);
+        margin-bottom: 5px;
+        text-align: center;
+        height: 25px;
+        line-height: 25px;
+    }
+
+    .category-check{
+        position: absolute;
+        z-index: 99;
+        bottom: 0px;
+        background: #0000007a;
+        color: #fff;
+        width: calc(100% - 10px);
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 70px;
+        height: calc(100% - 35px);
+    }
+
+    .btn-pos {
+        margin-right: 10px;
+    }
+}

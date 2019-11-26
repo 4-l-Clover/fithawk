@@ -1,0 +1,100 @@
+@import '../../../theme/fonts';
+page-post {
+    ion-header {
+        ion-toolbar {
+            text-align: center;
+            font-size: 19px;
+            min-height: 0 !important;
+            padding-top: 2px !important;
+            padding-bottom: 2px !important;
+
+            .toolbar-background {
+                background: black;
+            }
+        }
+
+        ion-navbar {
+            button {
+                color: white;
+                font-weight: 600;
+                background: transparent;
+                font-size: 23px;
+
+                &.logo-btn {
+                    float: right;
+                }
+            }
+        }
+
+        #notification-button {            
+            position: relative;
+            width: 42px;
+            top:1px;
+            right: 1px;
+            overflow: visible!important;
+        }
+
+        #notifications-badge {
+            background-color: red;
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            border-radius: 100%;
+        }
+    }
+
+    ion-content {
+        .ion-list {
+            padding: 0 12px;
+
+            &.modal-popup {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                background: #00000040;
+                z-index: 200;
+            }
+
+            ion-label {
+                h2 {
+                    color: #e55725;
+                }
+            }
+
+            ion-card {
+                background: transparent;
+
+                ion-item {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+
+    .button-float {
+        background: #e55725 !important;
+        color:white !important;
+        z-index: 12 !important;
+        position: absolute !important; 
+        bottom: 65px !important;
+        right: 10px !important;
+        border-radius: 50% !important;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26) !important;
+        -webkit-transform: translate3d(0, 0, 0) !important;
+        transform: translate3d(0, 0, 0) !important;
+        -webkit-transition: 0.2s linear !important;
+        transition: 0.2s linear !important;
+        -webkit-transition-property: -webkit-transform, all !important;
+        transition-property: transform, all !important;
+        
+        ion-icon {
+            font-size: 30px;
+            width: 44px;
+            height: 50px;
+            padding-top: 11px;
+            padding-left: 3px;
+        }
+      }
+}

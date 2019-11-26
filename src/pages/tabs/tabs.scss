@@ -1,0 +1,84 @@
+ion-tabs {
+    .tabbar {
+        background: white !important;
+
+        .tab-button {
+            min-height: 47px !important;
+        }
+    }
+
+    ion-icon {
+        &[class*="custom-"] {
+            margin: 4px 5px 10px 0 !important;
+            vertical-align: middle;
+            $sz: 20px;
+            width: $sz;
+            height: $sz;
+        } // custom icons
+        
+        &[class*="activity"]{
+            background: url("../assets/imgs/tabs/home-on.png") no-repeat 50% 50%;
+            background-size: contain;
+            width: 25px;
+            height: 25px !important;
+            position: absolute;
+            bottom: 0;
+        }
+
+        &[class*="activity-outline"]{
+            background-image: url("../assets/imgs/tabs/home-off.png");
+        }
+
+        &[class*="calendar1"]{
+            background: url("../assets/imgs/tabs/calendar-on.png") no-repeat 50% 50%;
+            background-size: contain;
+            width: 25px;
+            height: 25px !important;
+            position: absolute;
+            bottom: 0;
+        }
+
+        &[class*="calendar1-outline"]{
+            background-image: url("../assets/imgs/tabs/calendar-off.png");
+        }
+
+        &[class*="discover"]{
+            background: url("../assets/imgs/fithawk-orange.png") no-repeat 50% 50%;
+            background-size: contain;
+            width: 45px;
+            height: 45px !important;
+            position: absolute;
+            margin-top: 0 !important;
+        }
+
+        &[class*="discover-outline"]{
+            background-image: url("../assets/imgs/fithawk-grey.png");
+        }
+
+        &[class*="messages"]{
+            background: url("../assets/imgs/tabs/message-on.png") no-repeat 50% 50%;
+            background-size: contain;
+            width: 25px;
+            height: 25px !important;
+            position: absolute;
+            bottom: 0;
+        }
+
+        &[class*="messages-outline"]{
+            background-image: url("../assets/imgs/tabs/message-off.png");
+        }
+
+        &[class*="profile"]{
+            background: url("../assets/imgs/tabs/profile-on.png") no-repeat 50% 50%;
+            background-size: contain;
+            width: 25px;
+            height: 25px !important;
+            position: absolute;
+            bottom: 0;
+        }
+
+        &[class*="profile-outline"]{
+            background-image: url("../assets/imgs/tabs/profile-off.png");
+        }
+    }
+}
